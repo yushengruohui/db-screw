@@ -11,4 +11,4 @@
 
 3、根据环境，修改 resources 里的配置文件 application.properties 
 
-4、执行 bin/start.sh 
+4、执行 bin/start.sh (注意：依赖 jdk 1.8 环境)
