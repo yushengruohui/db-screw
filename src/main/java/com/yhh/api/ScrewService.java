@@ -14,7 +14,6 @@ import org.slf4j.LoggerFactory;
 
 import javax.sql.DataSource;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -55,7 +54,7 @@ public class ScrewService {
                 .description("1")
                 .dataSource(dataSource)
                 .engineConfig(engineConfig)
-                // .produceConfig(getProcessConfig())
+                .produceConfig(getProcessConfig())
                 .build();
 
         // 执行生成
@@ -64,13 +63,13 @@ public class ScrewService {
         log.info("it is ok");
     }
 
-    public static ProcessConfig getProcessConfig() {
+    private static ProcessConfig getProcessConfig() {
         // 忽略表名
-        List<String> ignoreTableName = Arrays.asList("aa", "test_group");
-        // 忽略表前缀，如忽略a开头的数据库表
-        List<String> ignorePrefix = Arrays.asList("a", "t");
+        List<String> ignoreTableName = split(ScrewProperties.ignoreTableName);
+        // 忽略表前缀
+        List<String> ignorePrefix = split(ScrewProperties.ignorePrefix);
         // 忽略表后缀
-        List<String> ignoreSuffix = Arrays.asList("_test", "czb_");
+        List<String> ignoreSuffix = split(ScrewProperties.ignoreSuffix);
 
         return ProcessConfig.builder()
                 //根据名称指定表生成
@@ -85,5 +84,16 @@ public class ScrewService {
                 .ignoreTablePrefix(ignorePrefix)
                 //忽略表后缀
                 .ignoreTableSuffix(ignoreSuffix).build();
+    }
+
+    private static List<String> split(String txt) {
+        String[] split = txt.split("#");
+        List<String> ignore = new ArrayList<>();
+        for (String s : split) {
+            if (s != null && !s.isEmpty()) {
+                ignore.add(s);
+            }
+        }
+        return ignore;
     }
 }

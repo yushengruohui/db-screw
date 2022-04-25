@@ -12,4 +12,7 @@ public class ScrewProperties {
     public static final String username = PropertyUtil.getString(path, "spring.datasource.username", "");
     public static final String password = PropertyUtil.getString(path, "spring.datasource.password", "");
     public static final String driverClassName = PropertyUtil.getString(path, "spring.datasource.driver-class-name", "");
+    public static final String ignoreTableName = PropertyUtil.getString(path, "screw.ignore.table-name", "");
+    public static final String ignorePrefix = PropertyUtil.getString(path, "screw.ignore.table-prefix", "");
+    public static final String ignoreSuffix = PropertyUtil.getString(path, "screw.ignore.table-suffix", "");
 }
