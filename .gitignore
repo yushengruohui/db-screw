@@ -1,0 +1,74 @@
+!**/src/main/**
+!**/src/test/**
+/*/**/.gitignore
+
+# Windows:
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+*.log
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+.mvn
+mvnw
+mvnw.cmd
+HELP.md
+target
+out
+rebel.xml
+bob.properties
+
+# Eclipse Project Files
+.metadata
+bin
+tmp
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.loadpath
+.recommenders
+.externalToolBuilders
+*.launch
+*.pydevproject
+.cproject
+.autotools
+.buildpath
+.target
+.tern-project
+.texlipse
+.apt_generated_test
+.cache-main
+.scala_dependencies
+.worksheet
+
+### NetBeans ###
+nbproject/private
+build
+nbbuild
+dist
+nbdist
+.nb-gradle
+
+node_modules
+
+### VS Code ###
+.vscode
+
+# Build Artifacts 
+.gradle
+dependency-reduced-pom.xml
