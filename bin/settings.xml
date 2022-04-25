@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+    <!--<localRepository>/dev-config/maven-repository</localRepository>-->
+    <pluginGroups/>
+    <proxies>
+        <!--
+        <proxy>
+          <id>optional</id>
+          <active>true</active>
+          <protocol>http</protocol>
+          <username>proxyuser</username>
+          <password>proxypass</password>
+          <host>proxy.host.net</host>
+          <port>80</port>
+          <nonProxyHosts>local.net|some.host.com</nonProxyHosts>
+        </proxy>
+        -->
+    </proxies>
+
+    <servers>
+        <!-- Another sample, using keys to authenticate.
+        <server>
+          <id>siteServer</id>
+          <privateKey>/path/to/private/key</privateKey>
+          <passphrase>optional; leave empty if not used.</passphrase>
+        </server>
+        -->
+        <server>
+            <id>nexus-repo</id>
+            <username>admin</username>
+            <password>admin123</password>
+        </server>
+        <server>
+            <id>docker-repo</id>
+            <username>admin</username>
+            <password>admin123</password>
+        </server>
+    </servers>
+
+    <mirrors>
+        <!--
+        <mirror>
+            <id>nexus-repo</id>
+            <name>nexus repo</name>
+            <url>http://147.152.60.30:8181/8081/nexus/content/groups/public</url>
+            <mirrorOf>*</mirrorOf>
+        </mirror>
+        -->
+        <mirror>
+            <id>aliyun-repo</id>
+            <name>aliyun repo</name>
+            <url>http://maven.aliyun.com/nexus/content/groups/public</url>
+            <mirrorOf>central</mirrorOf>
+        </mirror>
+    </mirrors>
+
+    <profiles>
+        <profile>
+            <id>jdk1.8</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+                <jdk>1.8</jdk>
+            </activation>
+            <properties>
+                <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+                <maven.compiler.source>1.8</maven.compiler.source>
+                <maven.compiler.target>1.8</maven.compiler.target>
+                <maven.compiler.compilerVersion>1.8</maven.compiler.compilerVersion>
+            </properties>
+        </profile>
+    </profiles>
+
+    <activeProfiles>
+        <activeProfile>jdk1.8</activeProfile>
+    </activeProfiles>
+</settings>
