@@ -27,6 +27,7 @@ public class ScrewService {
         HikariConfig hikariConfig = new HikariConfig();
         hikariConfig.setDriverClassName(ScrewProperties.driverClassName);
         hikariConfig.setJdbcUrl(ScrewProperties.url);
+        hikariConfig.setSchema(ScrewProperties.schema);
         hikariConfig.setUsername(ScrewProperties.username);
         hikariConfig.setPassword(ScrewProperties.password);
         //设置可以获取tables remarks信息
@@ -41,7 +42,7 @@ public class ScrewService {
                 // 打开目录
                 .openOutputDir(false)
                 // 文件类型
-                .fileType(EngineFileType.HTML)
+                .fileType(EngineFileType.valueOf(ScrewProperties.fileType))
                 // 生成模板实现
                 .produceType(EngineTemplateType.freemarker)
                 // 输出文件名，不用带后缀
